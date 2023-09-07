@@ -1,10 +1,10 @@
 ---
-title: "First post"
-tags: ["hello", "world"]
-type: "post"
-description: "test"
-date: 2023-09-07T14:28:53+02:00
-draft: true
+title: "This is a test"
+description: "Writeup on htb coming soon"
+date: 2023-03-28T00:00:00+00:00
+tags: ["test", "htb", "writeup"]
+type: post
+showTableOfContents: true
 ---
 
 # Hello World!
