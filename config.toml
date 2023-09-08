@@ -1,4 +1,4 @@
-baseURL = "https://jsthope.com/"
+baseURL = "https://jsthope.xyz/"
 defaultContentLanguage = "en"
 languageCode = "en"
 
@@ -75,4 +75,8 @@ socialIcons = [
     {name = "hackthebox", url = "https://app.hackthebox.com/profile/793201"},
     {name = "spotify", url = "https://open.spotify.com/artist/65yRSFelIjk6TTuclltnDN?si=BsADp81wTUqGbehXAl5zSQ"},
 ]
-
+[markup]
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 3
+    ordered = false
