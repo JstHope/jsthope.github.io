@@ -4,10 +4,10 @@ description: "Writeup by jsthope"
 date: 2023-03-28T00:00:00+00:00
 tags: ["HTB", "Easy", "writeup", "FR"]
 type: post
-image: images/cap/cap.png
+image: /images/cap/cap.png
 showTableOfContents: true
 ---
-![HTB Cap Image](images/cap/cap.png "HTB Cap Image")
+![HTB Cap Image](/images/cap/cap.png "HTB Cap Image")
 # nmap
 On va tout d’abord scanner les ports ouverts de l’ip
 ```┌─[eu-vip-23]─[10.10.14.5]─[htb-jsthope@htb-xbv1dyv8fx]─[~]
@@ -28,7 +28,7 @@ Sur le site, on remarque qu'on est connecté de base à l'utilisateur "Nathan".
 On trouve ensuite que le site permet de télécharger des trames réseaux:
 http://10.10.10.245/data/0
 On download le pcap numero 0 et on l'analyse ensuite avec Wireshark
-![pcap](images/cap/pcap.png "pcap")
+![pcap](/images/cap/pcap.png "pcap")
 
 On trouve alors le mot de passe de Nathan (utilisé pour le ftp)
 
