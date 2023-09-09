@@ -1,7 +1,7 @@
 ---
 title: "[HTB - Hard] Monitors"
 description: "Writeup by jsthope"
-date: 2023-09-08
+date: 2023-09-09
 tags: [HTB, Hard, Writeup, French, Wordpress]
 type: post
 image: /images/monitors/monitors.png
