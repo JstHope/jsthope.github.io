@@ -292,6 +292,7 @@ Chisel nous a alors fait un tunnel pour accédé à ``https://localhost:8443/`` 
 └─$ dirsearch -u "https://localhost:8443/"
 ```
 ``dirsearch`` nous montre que ``https://localhost:8443/solr/`` existe.
+
 Avec une recherche rapide on tombe sur:
 ![solr](/images/monitors/solr.png)
 ## ofbiz exploit
