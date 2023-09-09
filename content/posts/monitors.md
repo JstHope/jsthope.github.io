@@ -287,10 +287,11 @@ marcus@monitors:~$ ./chisel client 10.10.14.5:8000 R:8443:127.0.0.1:1080
 ```
 Chisel nous a alors fait un tunnel pour accédé à ``https://localhost:8443/`` sur notre propre machine:
 ![tomcat](/images/monitors/tomcat.png)
-
-Ce service utilise ``Apache Tomcat/9.0.31``.
-
-```dirsearch -u "https://localhost:8443/"``` nous montre que ``https://localhost:8443/solr/`` existe. 
+```
+┌──(kali㉿kali)-[~/Desktop/linpeas-server]
+└─$ dirsearch -u "https://localhost:8443/"
+```
+``dirsearch``nous montre que ``https://localhost:8443/solr/`` existe. 
 Avec une recherche rapide on tombe sur:
 ![solr](/images/monitors/solr.png)
 ## ofbiz exploit
