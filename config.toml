@@ -60,7 +60,7 @@ enableRobotsTXT = true
   customHeadHTML = ""
 
   # Keywords relevant for SEO
-  metaKeywords = ["jsthope","jsthop3","hope1010", "htb", "hackthebox","rootme","writeup","walkthrough","hack","hacking","pwn","blog","fr","francais","french"]
+  metaKeywords = ["jsthope","jsthop3","hope1010", "htb", "hackthebox","rootme","writeup","walkthrough","hack","hacking","pwn","blog","fr","francais","french","correction"]
 
   # If you want to display posts on the homepage, the options are
   # "popular" (order posts by weight), "recent" (order posts by date)
