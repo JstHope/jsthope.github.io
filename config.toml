@@ -57,7 +57,7 @@ enableRobotsTXT = true
 
   # You can use this to inject any HTML in the <head> tag.
   # Ideal usecase for this is to import custom js/css or add your analytics snippet
-  customHeadHTML = ""
+    customHeadHTML = '<script async src="https://analytics.umami.is/script.js" data-website-id="fe709d70-9350-43d6-be51-e47a32a05779"></script>'
 
   # Keywords relevant for SEO
   metaKeywords = ["jsthope","jsthop3","hope1010", "htb", "hackthebox","rootme","writeup","walkthrough","hack","hacking","pwn","blog","fr","francais","french","correction"]
@@ -66,7 +66,6 @@ enableRobotsTXT = true
   # "popular" (order posts by weight), "recent" (order posts by date)
   # or "" (do not display, default option)
   showPostsOnHomePage = "recent"
-
   # Footer text
   footer = ""
 
