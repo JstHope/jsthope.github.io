@@ -72,7 +72,7 @@ enableRobotsTXT = true
 socialIcons = [
     {name = "github", url = "https://github.com/JstHope"},
     {name = "hackthebox", url = "https://app.hackthebox.com/profile/793201"},
-    {name = "spotify", url = "https://open.spotify.com/artist/65yRSFelIjk6TTuclltnDN?si=BsADp81wTUqGbehXAl5zSQ"},
+    {name = "spotify", url = "https://open.spotify.com/artist/65yRSFelIjk6TTuclltnDN"},
 ]
 [markup]
   [markup.tableOfContents]
