@@ -240,7 +240,7 @@ marcus@monitors:~$ cat user.txt
 ## linpeas.sh
 On cherche maintenant à faire une escalade de privilège jusqu'à ``root``, pour se faire, on va utiliser ``linpeas.sh`` pour lister les informations intéressantes.
 
-Ni curl ni wget ne sont disponible, donc on ne va pas passer par http pour envoyé des fichier mais utiliser netcat car lui est disponible:
+Ni curl ni wget ne sont disponible, donc on ne va pas passer par http pour envoyé des fichiers mais utiliser netcat car lui est disponible:
 
 ```
 # Cible:
