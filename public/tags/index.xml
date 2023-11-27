@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on jsthope</title>
+    <link>https://jsthope.xyz/tags/</link>
+    <description>Recent content in Tags on jsthope</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 09 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jsthope.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>French</title>
+      <link>https://jsthope.xyz/tags/french/</link>
+      <pubDate>Sat, 09 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://jsthope.xyz/tags/french/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hard</title>
+      <link>https://jsthope.xyz/tags/hard/</link>
+      <pubDate>Sat, 09 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://jsthope.xyz/tags/hard/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTB</title>
+      <link>https://jsthope.xyz/tags/htb/</link>
+      <pubDate>Sat, 09 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://jsthope.xyz/tags/htb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wordpress</title>
+      <link>https://jsthope.xyz/tags/wordpress/</link>
+      <pubDate>Sat, 09 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://jsthope.xyz/tags/wordpress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Writeup</title>
+      <link>https://jsthope.xyz/tags/writeup/</link>
+      <pubDate>Sat, 09 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://jsthope.xyz/tags/writeup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Easy</title>
+      <link>https://jsthope.xyz/tags/easy/</link>
+      <pubDate>Fri, 08 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://jsthope.xyz/tags/easy/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

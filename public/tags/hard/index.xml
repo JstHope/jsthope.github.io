@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hard on jsthope</title>
+    <link>https://jsthope.xyz/tags/hard/</link>
+    <description>Recent content in Hard on jsthope</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 09 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jsthope.xyz/tags/hard/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[HTB - Hard] Monitors</title>
+      <link>https://jsthope.xyz/posts/monitors/</link>
+      <pubDate>Sat, 09 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://jsthope.xyz/posts/monitors/</guid>
+      <description>Marcus Nmap On commence par scanner les ports de l&amp;rsquo;ip:
+┌──(kali㉿kali)-[~]└─$ sudo nmap -sV -sC -A 10.10.10.238PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)| ssh-hostkey: | 2048 bacccd81fc9155f3f6a91f4ee8bee52e (RSA)| 256 6943376a1809f5e77a67b81811ead765 (ECDSA)|_ 256 5d5e3f67ef7d762315114b53f8413a94 (ED25519)80/tcp open http Apache httpd 2.4.29 ((Ubuntu))|_http-generator: WordPress 5.5.1|_http-server-header: Apache/2.4.29 (Ubuntu)|_http-title: Welcome to Monitor &amp;amp;#8211; Taking hardware monitoring seriouslyTRACEROUTE (using port 80/tcp)HOP RTT ADDRESS1 23.</description>
+    </item>
+    
+  </channel>
+</rss>

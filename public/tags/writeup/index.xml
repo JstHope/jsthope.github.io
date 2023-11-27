@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Writeup on jsthope</title>
+    <link>https://jsthope.xyz/tags/writeup/</link>
+    <description>Recent content in Writeup on jsthope</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 09 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jsthope.xyz/tags/writeup/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[HTB - Hard] Monitors</title>
+      <link>https://jsthope.xyz/posts/monitors/</link>
+      <pubDate>Sat, 09 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://jsthope.xyz/posts/monitors/</guid>
+      <description>Marcus Nmap On commence par scanner les ports de l&amp;rsquo;ip:
+┌──(kali㉿kali)-[~]└─$ sudo nmap -sV -sC -A 10.10.10.238PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)| ssh-hostkey: | 2048 bacccd81fc9155f3f6a91f4ee8bee52e (RSA)| 256 6943376a1809f5e77a67b81811ead765 (ECDSA)|_ 256 5d5e3f67ef7d762315114b53f8413a94 (ED25519)80/tcp open http Apache httpd 2.4.29 ((Ubuntu))|_http-generator: WordPress 5.5.1|_http-server-header: Apache/2.4.29 (Ubuntu)|_http-title: Welcome to Monitor &amp;amp;#8211; Taking hardware monitoring seriouslyTRACEROUTE (using port 80/tcp)HOP RTT ADDRESS1 23.</description>
+    </item>
+    
+    <item>
+      <title>[HTB - Easy] Cap</title>
+      <link>https://jsthope.xyz/posts/cap/</link>
+      <pubDate>Fri, 08 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://jsthope.xyz/posts/cap/</guid>
+      <description>nmap On va tout d’abord scanner les ports ouverts de l’ip:
+└──╼ [★]$ nmap 10.10.10.245Starting Nmap 7.93 ( https://nmap.org ) at 2023-09-07 22:35 BSTNmap scan report for 10.10.10.245Host is up (0.18s latency).Not shown: 997 closed tcp ports (conn-refused)PORT STATE SERVICE21/tcp open ftp22/tcp open ssh80/tcp open httpNmap done: 1 IP address (1 host up) scanned in 8.69 seconds http Sur le site, on remarque qu&amp;rsquo;on est connecté de base à l&amp;rsquo;utilisateur &amp;ldquo;Nathan&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>
